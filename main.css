@@ -16,74 +16,47 @@ textarea{resize:vertical;}
 url('fonts/RalewayThin.woff2') format('woff2'),
 url('fonts/RalewayThin.woff') format('woff'),
 url('fonts/RalewayThin.ttf') format('truetype'),
-url('fonts/RalewayThin.svg#RalewayThin') format('svg');font-weight:100; size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayThin.svg#RalewayThin') format('svg');font-weight:100;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewayExtraLight.eot');src:url('fonts/RalewayExtraLight.eot') format('embedded-opentype'),
 url('fonts/RalewayExtraLight.woff2') format('woff2'),
 url('fonts/RalewayExtraLight.woff') format('woff'),
 url('fonts/RalewayExtraLight.ttf') format('truetype'),
-url('fonts/RalewayExtraLight.svg#RalewayExtraLight') format('svg');font-weight:200; size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayExtraLight.svg#RalewayExtraLight') format('svg');font-weight:200;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewayLight.eot');src:url('fonts/RalewayLight.eot') format('embedded-opentype'),
 url('fonts/RalewayLight.woff2') format('woff2'),
 url('fonts/RalewayLight.woff') format('woff'),
 url('fonts/RalewayLight.ttf') format('truetype'),
-url('fonts/RalewayLight.svg#RalewayLight') format('svg');font-weight:300; size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayLight.svg#RalewayLight') format('svg');font-weight:300;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewayRegular.eot');src:url('fonts/RalewayRegular.eot') format('embedded-opentype'),
 url('fonts/RalewayRegular.woff2') format('woff2'),
 url('fonts/RalewayRegular.woff') format('woff'),
 url('fonts/RalewayRegular.ttf') format('truetype'),
-url('fonts/RalewayRegular.svg#RalewayRegular') format('svg');font-weight:400; size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayRegular.svg#RalewayRegular') format('svg');font-weight:400;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewayMedium.eot');src:url('fonts/RalewayMedium.eot') format('embedded-opentype'),
 url('fonts/RalewayMedium.woff2') format('woff2'),
 url('fonts/RalewayMedium.woff') format('woff'),
 url('fonts/RalewayMedium.ttf') format('truetype'),
-url('fonts/RalewayMedium.svg#RalewayMedium') format('svg');font-weight:500; size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayMedium.svg#RalewayMedium') format('svg');font-weight:500;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewaySemiBold.eot');src:url('fonts/RalewaySemiBold.eot') format('embedded-opentype'),
 url('fonts/RalewaySemiBold.woff2') format('woff2'),
 url('fonts/RalewaySemiBold.woff') format('woff'),
 url('fonts/RalewaySemiBold.ttf') format('truetype'),
-url('fonts/RalewaySemiBold.svg#RalewaySemiBold') format('svg');font-weight:600; size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewaySemiBold.svg#RalewaySemiBold') format('svg');font-weight:600;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewayBold.eot');src:url('fonts/RalewayBold.eot') format('embedded-opentype'),
 url('fonts/RalewayBold.woff2') format('woff2'),
 url('fonts/RalewayBold.woff') format('woff'),
 url('fonts/RalewayBold.ttf') format('truetype'),
-url('fonts/RalewayBold.svg#RalewayBold') format('svg');font-weight:700;size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayBold.svg#RalewayBold') format('svg');font-weight:700;}
 @font-face{font-display: swap;font-family:'Raleway';src:url('fonts/RalewayExtraBold.eot');src:url('fonts/RalewayExtraBold.eot') format('embedded-opentype'),
 url('fonts/RalewayExtraBold.woff2') format('woff2'),
 url('fonts/RalewayExtraBold.woff') format('woff'),
 url('fonts/RalewayExtraBold.ttf') format('truetype'),
-url('fonts/RalewayExtraBold.svg#RalewayExtraBold') format('svg');font-weight:800;size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/RalewayExtraBold.svg#RalewayExtraBold') format('svg');font-weight:800;}
 @font-face{font-display: swap;font-family:'seguibl';src:url('fonts/seguibl.eot');src:url('fonts/seguibl.eot') format('embedded-opentype'),
 url('fonts/seguibl.woff2') format('woff2'),
 url('fonts/seguibl.woff') format('woff'),
 url('fonts/seguibl.ttf') format('truetype'),
-url('fonts/seguibl.svg#seguibl') format('svg');size-adjust: 102%;
-ascent-override: 90%;
-descent-override: 22%;
-line-gap-override: 0%;}
+url('fonts/seguibl.svg#seguibl') format('svg');}
 body{min-width:320px;max-width:1920px;margin:0 auto;color:#4d4d4d;font-size:16px;font-family:'Raleway';}
 .center_wrap{max-width:1100px;padding:0 15px;box-sizing:border-box;margin:0 auto;}
 .dt{display:table;width:100%;}
@@ -98,7 +71,7 @@ img{max-width:100%;height:auto;}
 table img{max-width:600px;}
 ul{padding:0;margin:0;list-style:none;}
 p{margin:0 0 20px 0;}
-h1,h2,h3,h4,h5,h6{margin:0 0 20px 0;line-height:1.2;}
+h1,h2,h3,h4,h5,h6{margin:0 0 20px 0;line-height:1.2;font-size:700px;}
 h1{font-size:36px;}
 h2{font-size:24px;}
 h3{font-size:18px;}
@@ -114,13 +87,7 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img{h
 img.alignleft, img.alignright, img.aligncenter, img.alignnone{margin-bottom:12px;}
 img.alignleft, img.alignnone{margin-right:10px;}
 table img.alignleft, table img.alignright, table img.aligncenter, table img.alignnone{margin:0;}
-.wpcf7-response-output{
-  display:block;         /* пусть существует всегда */
-  min-height:48px;       /* резерв под текст ответа */
-  margin:12px 0 0;
-  visibility:visible;
-}
-.ajax-loader{display:inline-block;}
+.ajax-loader, .wpcf7-response-output{display:none !important;}
 .wpcf7-form-control-wrap{position:relative;display:block;}
 .wpcf7-not-valid-tip{position:absolute;top:2px;right:5px;}
 .mobile_menu_wrap{position:fixed;right:0;top:0;z-index:2000;display:none;}
@@ -844,3 +811,4 @@ h3{page-break-after:avoid;}
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
 }
+
