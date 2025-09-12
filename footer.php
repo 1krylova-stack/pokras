@@ -58,11 +58,7 @@
 				<p class="popup_title">Задайте вопрос мастеру по ремонту</p>
 				<?php echo do_shortcode('[contact-form-7 id="191" title="Задать вопрос"]')?>
 			</div>
-			<div id="video" class="popup">
-				<div class="youtube_wrap">
-					<?php the_field('head_video', 'options')?>
-				</div>
-			</div>
+			
 			<div id="big_calc" class="popup">
 				<p class="popup_title">Получите лучшую цену</p>	
 				<?php echo do_shortcode('[contact-form-7 id="194" title="Большой калькулятор"]')?>
@@ -113,14 +109,18 @@ _tmr.push({id: "2944089", type: "pageView", start: (new Date()).getTime()});
 <!-- //Rating@Mail.ru counter -->
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="<?php bloginfo('template_url')?>/js/vendor/jquery-1.11.2.min.js"><\/script>')</script><!--/Vidget -->
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" defer></script>
+        <script>window.jQuery || document.write('<script src="<?php bloginfo('template_url')?>/js/vendor/jquery-1.11.2.min.js" defer><\/script>')</script><!--/Vidget -->
 
-        <script src="<?php bloginfo('template_url')?>/js/owl.carousel/owl.carousel.min.js"></script>
-        <script src="<?php bloginfo('template_url')?>/js/masked.input.js"></script>
-        <script src="<?php bloginfo('template_url')?>/js/fancybox/jquery.fancybox.pack.js"></script>
-        <script src="<?php bloginfo('template_url')?>/js/masonry.js"></script>
-        <script src="<?php bloginfo('template_url')?>/js/main.js"></script>
+       <script src="<?php bloginfo('template_url')?>/js/owl.carousel/owl.carousel.min.js" defer></script>
+        <script src="<?php bloginfo('template_url')?>/js/masked.input.js" defer></script>
+        <script src="<?php bloginfo('template_url')?>/js/fancybox/jquery.fancybox.pack.js" defer></script>
+        <script src="<?php bloginfo('template_url')?>/js/masonry.js" defer></script>
+<?php if (defined('WP_DEBUG') && WP_DEBUG) : ?>
+        <script src="<?php bloginfo('template_url')?>/js/main.js" defer></script>
+<?php else : ?>
+        <script src="<?php bloginfo('template_url')?>/js/main.min.js" defer></script>
+<?php endif; ?>
 		<?php wp_footer();?>
 		<?php the_field('yandex_metrika', 'options')?>
 		<?php the_field('google_analitics', 'options')?>
