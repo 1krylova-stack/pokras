@@ -6,14 +6,43 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
-remove_action( 'wp_head', 'rsd_link' ); 
+remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'feed_links_extra', 3 );
 
+function pokras_enqueue_styles() {
+    wp_enqueue_style('pokras-main', get_template_directory_uri() . '/css/main.css', array(), null, 'print');
+
+    $needs_slider = is_front_page() || is_page_template(array(
+        'template-about.php',
+        'template-contacts.php',
+        'template-prices.php',
+        'template-sitemap.php',
+        'template-servicepage.php',
+        'template-markapage.php',
+        'template-markapage-new.php',
+        'template-technical.php'
+    ));
+
+    if ($needs_slider) {
+        wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/js/owl.carousel/assets/owl.carousel.css', array(), null);
+        wp_enqueue_style('fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css', array(), null);
+    }
+}
+add_action('wp_enqueue_scripts', 'pokras_enqueue_styles');
+
+add_filter('style_loader_tag', function($html, $handle) {
+    if ('pokras-main' === $handle) {
+        $html = str_replace("media='print'", "media='print' onload=\"this.media='all'\"", $html);
+        $html .= '<noscript><link rel="stylesheet" href="' . get_template_directory_uri() . '/css/main.css" /></noscript>';
+    }
+    return $html;
+}, 10, 2);
+
 function footer_enqueue_scripts(){
-	remove_action('wp_head','wp_print_scripts');
-	remove_action('wp_head','wp_print_head_scripts',9);
-	remove_action('wp_head','wp_enqueue_scripts',1);
+        remove_action('wp_head','wp_print_scripts');
+        remove_action('wp_head','wp_print_head_scripts',9);
+        remove_action('wp_head','wp_enqueue_scripts',1);
 	add_action('wp_footer','wp_print_scripts',5);
 	add_action('wp_footer','wp_enqueue_scripts',5);
 	add_action('wp_footer','wp_print_head_scripts',5);
