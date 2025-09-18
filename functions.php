@@ -10,39 +10,10 @@ remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'feed_links_extra', 3 );
 
-function pokras_enqueue_styles() {
-    wp_enqueue_style('pokras-main', get_template_directory_uri() . '/css/main.css', array(), null, 'print');
-
-    $needs_slider = is_front_page() || is_page_template(array(
-        'template-about.php',
-        'template-contacts.php',
-        'template-prices.php',
-        'template-sitemap.php',
-        'template-servicepage.php',
-        'template-markapage.php',
-        'template-markapage-new.php',
-        'template-technical.php'
-    ));
-
-    if ($needs_slider) {
-        wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/js/owl.carousel/assets/owl.carousel.css', array(), null);
-        wp_enqueue_style('fancybox', get_template_directory_uri() . '/js/fancybox/jquery.fancybox.css', array(), null);
-    }
-}
-add_action('wp_enqueue_scripts', 'pokras_enqueue_styles');
-
-add_filter('style_loader_tag', function($html, $handle) {
-    if ('pokras-main' === $handle) {
-        $html = str_replace("media='print'", "media='print' onload=\"this.media='all'\"", $html);
-        $html .= '<noscript><link rel="stylesheet" href="' . get_template_directory_uri() . '/css/main.css" /></noscript>';
-    }
-    return $html;
-}, 10, 2);
-
 function footer_enqueue_scripts(){
-        remove_action('wp_head','wp_print_scripts');
-        remove_action('wp_head','wp_print_head_scripts',9);
-        remove_action('wp_head','wp_enqueue_scripts',1);
+	remove_action('wp_head','wp_print_scripts');
+	remove_action('wp_head','wp_print_head_scripts',9);
+	remove_action('wp_head','wp_enqueue_scripts',1);
 	add_action('wp_footer','wp_print_scripts',5);
 	add_action('wp_footer','wp_enqueue_scripts',5);
 	add_action('wp_footer','wp_print_head_scripts',5);
@@ -301,6 +272,23 @@ add_shortcode('marki', function($atts){
     get_template_part('templateparts/marki');
     return ob_get_clean();
 });
+
+add_action('wp_enqueue_scripts', function () {
+  // jQuery из ядра WP
+  wp_enqueue_script('jquery');
+
+  // CSS Fancybox (если нужен из темы; у тебя уже подключается в <head> — можно пропустить)
+  // wp_enqueue_style('fancybox', get_template_directory_uri().'/js/fancybox/jquery.fancybox.css', [], '2.1.7');
+
+  // JS плагины
+  wp_enqueue_script('owl', get_template_directory_uri().'/js/owl.carousel/owl.carousel.min.js', ['jquery'], '2.3.4', true);
+  wp_enqueue_script('masked-input', get_template_directory_uri().'/js/masked.input.js', ['jquery'], null, true);
+  wp_enqueue_script('fancybox', get_template_directory_uri().'/js/fancybox/jquery.fancybox.pack.js', ['jquery'], '2.1.7', true);
+  wp_enqueue_script('masonry-custom', get_template_directory_uri().'/js/masonry.js', ['jquery'], null, true);
+
+  // Твой основной
+  wp_enqueue_script('theme-main', get_template_directory_uri().'/js/main.js', ['jquery'], null, true);
+}, 20);
 
 
 //Закрывающий тег! Не убирать!
