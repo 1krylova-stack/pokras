@@ -71,7 +71,7 @@ img{max-width:100%;height:auto;}
 table img{max-width:600px;}
 ul{padding:0;margin:0;list-style:none;}
 p{margin:0 0 20px 0;}
-h1,h2,h3,h4,h5,h6{margin:0 0 20px 0;line-height:1.2;font-size:700px;}
+h1,h2,h3,h4,h5,h6{margin:0 0 20px 0;line-height:1.2;font-weight:700px;}
 h1{font-size:36px;}
 h2{font-size:24px;}
 h3{font-size:18px;}
@@ -87,7 +87,6 @@ img.size-auto, img.size-full, img.size-large, img.size-medium, .attachment img{h
 img.alignleft, img.alignright, img.aligncenter, img.alignnone{margin-bottom:12px;}
 img.alignleft, img.alignnone{margin-right:10px;}
 table img.alignleft, table img.alignright, table img.aligncenter, table img.alignnone{margin:0;}
-.ajax-loader, .wpcf7-response-output{display:none !important;}
 .wpcf7-form-control-wrap{position:relative;display:block;}
 .wpcf7-not-valid-tip{position:absolute;top:2px;right:5px;}
 .mobile_menu_wrap{position:fixed;right:0;top:0;z-index:2000;display:none;}
@@ -142,7 +141,12 @@ table img.alignleft, table img.alignright, table img.aligncenter, table img.alig
 	padding-right: 40px;
 	background: url("../img/mobile_whatsapp.png") right center no-repeat;
 }
-#header{padding-top:30px;background:url("../img/head_bg.jpg") center top no-repeat;margin-bottom:70px;}
+
+
+
+
+
+
 .page-template-template-technical #header {
 	padding-bottom: 20px;
 	margin-bottom: 0px;
@@ -394,7 +398,8 @@ p.content_title span{font-weight:200;}
 .pseudo_file{border:1px solid #7accd0;background:none;color:#fff;height:43px;line-height:43px;padding:0 50px 0 18px;margin:0;cursor:pointer;position:relative;overflow:hidden;}
 .pseudo_file::after{content:"+";font-size:24px;color:#fff;position:absolute;right:25px;line-height:24px;display:block;top:10px;}
 .pseudo_file span{color:#fff;opacity:1;font-size:14px;}
-#send_photo input[type="submit"]{width:275px;height:48px;line-height:48px;font-size:16px;}
+#send_photo input[type="submit"]{width:275px;height:43px;line-height:43px;font-size:16px;}
+
 #send_photo input[type="file"]{display:none;}
 #send_photo form p{margin-top:15px;}
 .send_photo_social{color:#fff;text-align:center;}
@@ -795,7 +800,7 @@ h3{page-break-after:avoid;}
   content: "";
   position: absolute;
   top: 50%;
-  left: 50%; 
+  left: 50%;
   width: 120%;
   height: 120%;
   background: rgba(255, 0, 0, 0.3);
@@ -810,5 +815,97 @@ h3{page-break-after:avoid;}
 .model_item:hover::before {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
+}
+
+/* Меню вплотную к верху: убираем возможные внешние отступы */
+#top { margin-bottom: 0 !important; }
+#main_nav { margin-top: 0 !important; }
+
+/* Если где-то остался внешний отступ у героя — переносим внутрь (чтобы фон не обрывался) */
+#head_content { margin-bottom: 0 !important; padding-bottom: 70px !important; }
+
+/* CF7: общая линия у инпутов/кнопки/спиннера */
+.wpcf7 form input[type="text"],
+.wpcf7 form input[type="email"],
+.wpcf7 form input[type="tel"],
+.wpcf7 form input[type="file"],
+.wpcf7 form textarea,
+.wpcf7 form .wpcf7-submit,
+.wpcf7 form .wpcf7-spinner {
+  vertical-align: middle;
+}
+
+/* Кнопка как контейнер */
+.wpcf7 form .wpcf7-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: normal;
+}
+
+/* Спиннер справа и без «рыскания» */
+.wpcf7 form .wpcf7-spinner {
+  display: inline-block;
+  margin-left: 12px;
+  position: static;
+}
+
+/* В попапах поля = 46px; у кнопки тоже делаем 46px, чтобы не прыгала */
+.popup input[type="submit"] { height: 46px; line-height: 46px; }
+
+/* Главная форма (поле 46px) — выровнять кнопку */
+.head_order_block .wpcf7 .wpcf7-submit { height: 46px; }
+
+/* Где формы идут в строку — страхуемся флексом */
+.head_order_block .wpcf7 form p,
+#send_photo .wpcf7 form p,
+.content_form_wrap .wpcf7 form p {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ===== HERO: mobile-first без фоновой картинки ===== */
+#head_content{
+  position: relative;
+  /* без фонового изображения на мобайле */
+  background: none;
+  /* можно оставить мягкий фон/градиент, чтобы не было “пустоты” */
+  background-color: #f6f7f8;
+  /* габариты/отступы как раньше */
+  min-height: 360px;
+  padding-top: 30px;
+  padding-bottom: 70px;
+  margin-bottom: 0; /* отступ перенесён внутрь, чтобы фон не “обрывался” */
+}
+
+/* если когда-то добавляли псевдо-элемент ::before — отключим */
+#head_content::before{ content: none !important; }
+
+/* ===== Desktop: подключаем фоновое изображение ===== */
+@media (min-width: 1024px){
+  #head_content{
+    background-color: transparent;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Один файл: */
+    background-image: url("/wp-content/themes/shablon/img/head_bg.jpg");
+
+    /* или современный набор (если есть файлы): 
+    background-image: image-set(
+      url("/wp-content/themes/shablon/img/head_bg.avif") type("image/avif"),
+      url("/wp-content/themes/shablon/img/head_bg.webp") type("image/webp"),
+      url("/wp-content/themes/shablon/img/head_bg.jpg")  type("image/jpeg")
+    );
+    */
+
+    /* на десктопе можно дать побольше высоту */
+    min-height: 520px;
+  }
+}
+@media (min-width: 1600px){
+  #head_content{ min-height: 560px; }
 }
 
